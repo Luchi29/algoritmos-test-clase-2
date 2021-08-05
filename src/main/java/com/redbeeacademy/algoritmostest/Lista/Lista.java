@@ -9,38 +9,73 @@ Realizar los siguientes métodos:
 6) Dadas dos listas, crear una nueva con los elementos que se repitan en ambas
  */
 
-import java.util.List;
+import java.util.*;
 
 public class Lista {
 
     public static List<Integer> guardarEnLista(Integer numero){
-        //TODO -> implement me
-        return null;
+        List<Integer> listaNums = new ArrayList<Integer>();
+        if(numero != null) {
+            listaNums.add(numero);
+        } else {
+            listaNums.add(0);
+        }
+
+        return listaNums;
+
+
     }
 
     public static List<Integer> intercambiar(List<Integer> lista){
-        //TODO -> implement me
-        return null;
+        lista = new ArrayList(lista);
+        lista.removeIf(Objects::isNull);
+        Collections.swap(lista, 2, 4);
+        return lista;
     }
 
     public static List<Integer> agregarElementoAlInicio(List<Integer> lista, Integer numero){
-        //TODO -> implement me
-        return null;
+        lista = new ArrayList<>(lista);
+        lista.removeIf(Objects::isNull);
+        lista.add(0, numero);
+        return lista;
     }
 
     public static Double promedioLista(List<Integer> lista){
-        //TODO -> implement me
-        return null;
+        lista = new ArrayList<>(lista);
+        lista.removeIf(Objects::isNull);
+        Double sum = 0.0;
+        Double prom = 0.0;
+        for(int i = 0; i < lista.size(); i++) {
+            sum += lista.get(i);
+        }
+        prom = sum/lista.size();
+        return prom;
     }
 
     public static List<Integer> eliminarMaximo(List<Integer> lista){
-        //TODO -> implement me
-        return null;
+        lista = new ArrayList<>(lista);
+        lista.removeIf(Objects::isNull);
+        Integer max = Collections.max(lista);
+        lista.remove(max);
+        return lista;
     }
 
     public static List<Integer> repetidos(List<Integer> a, List<Integer> b){
-        //TODO -> implement me
-        return null;
+        a = new ArrayList<>(a);
+        b = new ArrayList<>(b);
+        a.removeIf(Objects::isNull);
+        b.removeIf(Objects::isNull);
+        ArrayList<Integer> repeated = new ArrayList<>();
+        for(Integer i = 0; i < a.size(); i++){
+            for(Integer j = 0; j < b.size(); j++) {
+                if(a.get(i) == b.get(j)){
+                    repeated.add(a.get(i));
+                }
+            }
+        }
+        return repeated;
     }
+
+
 
 }

@@ -24,7 +24,7 @@ class CineTest {
     public void testNullValuesTotalRecaudado() {
         Double result = Cine.cantidadTotalRecaudada(List.of(new Persona(30), null, new Persona(8), new Persona(18) ));
         assertNotNull(result, "The result cannot be null");
-        assertEquals(550, result);
+        assertEquals(500, result);
     }
 
     @Test
