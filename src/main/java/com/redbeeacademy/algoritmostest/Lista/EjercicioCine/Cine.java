@@ -1,6 +1,6 @@
 package com.redbeeacademy.algoritmostest.Lista.EjercicioCine;
 
-import java.util.List;
+import java.util.*;
 
 /*
 Un cine de un pueblo nos pide que generemos una aplicacion para controlar las personas de una cola.
@@ -24,21 +24,58 @@ Tenemos la clase Persona, donde vamos a usarla para modelar edad, y las propieda
 
 public class Cine {
 
+
+
+
     public static double cantidadTotalRecaudada(List<Persona> personas){
         double cantidadTotal = 0;
-        //TODO -> implement me
+        double entrada1 = 100;
+        double entrada2 = 150;
+        double entrada3 = 200;
+        personas = new ArrayList<>(personas);
+        personas.removeIf(Objects::isNull);
+        for(Iterator<Persona> it = personas.iterator(); it.hasNext();) {
+            Persona persona = it.next();
+
+            if(persona.getEdad() >= 5 && persona.getEdad() <= 10){
+                cantidadTotal += entrada1;
+            }
+            if(persona.getEdad() >= 11 && persona.getEdad() <= 17){
+                cantidadTotal += entrada2;
+            }
+            if(persona.getEdad() >= 18){
+                cantidadTotal += entrada3;
+            }
+        }
+
+
         return cantidadTotal;
     }
 
     public static Integer cantidadPersonas(List<Persona> personas){
         Integer cantidadPersonas = 0;
-        //TODO -> implement me
+        personas = new ArrayList<>(personas);
+        personas.removeIf(Objects::isNull);
+        for(Integer i = 0; i < personas.size(); i++) {
+            cantidadPersonas++;
+        }
+
         return cantidadPersonas;
     }
 
     public static double promedioEdad(List<Persona> personas){
         double promedio = 0;
-        //TODO -> implement me
+        double sumEdades = 0;
+        personas = new ArrayList<>(personas);
+        personas.removeIf(Objects::isNull);
+        for(Iterator<Persona> it = personas.iterator(); it.hasNext();) {
+            Persona persona = it.next();
+            sumEdades += persona.getEdad();
+
+
+
+        }
+        promedio = sumEdades/personas.size();
         return promedio;
     }
 }
